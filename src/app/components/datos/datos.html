@@ -1,0 +1,33 @@
+<div id="div1" style="display: flex">
+    @if(cargando){
+    <img src="../../../../assets/cargando.webp" />
+    }@else{
+    <div class="card" style="width: 30%; margin-right: 5%">
+        <img src="{{ datos.equipo.imagen }}" class="card-img-top" alt="..." />
+        <div class="card-body">
+            <h3 class="card-title">{{ datos.equipo.nombre }}</h3>
+            <h6 class="btn btn-warning">Champions: {{ datos.equipo.champions }}</h6>
+            <p class="card-text">
+                {{ datos.equipo.descripcion }}
+            </p>
+        </div>
+    </div>
+    <div style="width: 70%">
+        <h2>Plantilla</h2>
+        <hr />
+        <div style="display: flex; flex-wrap: wrap; gap: 10px">
+            @for(jugador of datos.jugadores; track jugador){
+            <div class="card" style="flex: 1 1 150px; max-width: 150px">
+                <img src="{{ jugador.imagen }}" class="card-img-top" alt="..." />
+                <div class="card-body">
+                    <h3 class="card-title">{{ jugador.nombre }}</h3>
+                    <p class="card-text">
+                        {{ jugador.posicion }}
+                    </p>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+    }
+</div>

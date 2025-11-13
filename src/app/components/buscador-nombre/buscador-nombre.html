@@ -1,0 +1,15 @@
+<div id="div1">
+    <div style="display: flex; flex-wrap: wrap; gap: 10px">
+        @for(jugador of jugadores; track jugador){
+        <div class="card" style="flex: 1 1 150px; max-width: 150px">
+            <img src="{{ jugador.imagen }}" class="card-img-top" alt="..." />
+            <div class="card-body">
+                <h3 class="card-title">{{ jugador.nombre }}</h3>
+                <p class="card-text">
+                    {{ jugador.posicion }}
+                </p>
+            </div>
+        </div>
+        }
+    </div>
+</div>

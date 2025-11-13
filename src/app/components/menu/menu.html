@@ -1,0 +1,59 @@
+<div>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <img src="../../../../assets/batman.png" style="width: 75px" />
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a [routerLink]="['/']" class="nav-link active" aria-current="page">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <p
+                            class="nav-link dropdown-toggle"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                        >
+                            Equipos
+                        </p>
+                        <ul class="dropdown-menu">
+                            @for(equipo of equipos; track equipo){
+                            <li>
+                                <a
+                                    [routerLink]="['datos/' + equipo.idEquipo]"
+                                    class="dropdown-item"
+                                    >{{ equipo.nombre }}</a
+                                >
+                            </li>
+                            }
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input
+                        class="form-control me-2"
+                        type="search"
+                        placeholder="Search"
+                        aria-label="Search"
+                        name="buscador"
+                        #buscador
+                    />
+                    <button (click)="mandarABuscar()" class="btn btn-outline-success" type="submit">
+                        Buscar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+</div>
